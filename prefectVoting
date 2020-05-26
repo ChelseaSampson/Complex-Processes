@@ -1,0 +1,2 @@
+f = open ("sampleData.csv", "r")
+print(f.read())
