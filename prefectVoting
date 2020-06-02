@@ -1,2 +1,4 @@
-f = open ("sampleData.csv", "r")
-print(f.read())
+f = open("votingData.csv","r")
+print(f.readline())
+print(f.readline())
+print(f.readline(11))
