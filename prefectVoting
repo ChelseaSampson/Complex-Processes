@@ -1,4 +1,8 @@
 f = open("votingData.csv","r")
 print(f.readline())
 print(f.readline())
-print(f.readline(11))
+i = 1
+while i < 11:
+  print(f.read(i))
+  i += 1
+f.close()
