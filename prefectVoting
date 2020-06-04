@@ -1,6 +1,6 @@
 txt = open("votingData.csv","r")
 for x in txt:
-  y = txt.readline()
+  y = str(x)
   z = y.split(",")
   print (z)
 txt.close()
