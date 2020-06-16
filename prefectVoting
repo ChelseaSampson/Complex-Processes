@@ -3,4 +3,7 @@ for x in txt:
   y = str(x)
   z = y.split("\"")
   print (z[9])
+  a = z[9]
+  b = a.split (";")
+  print (b)
 txt.close()
