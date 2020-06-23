@@ -1,4 +1,13 @@
 txt = open("votingData.csv","r")
+class Person:
+  def __init__(self, email, headGirl, deputy, ):
+    self.email = email
+    self.headGirl = headGirl
+    self.deputy = deputy
+p1 = Person("sampsoncpnz", "Me", "You" )
+print(p1.email)
+print(p1.headGirl)
+"""
 for x in txt:
   y = str(x)
   z = y.split("\"")
@@ -7,3 +16,4 @@ for x in txt:
   b = a.split (";")
   print (b)
 txt.close()
+"""
