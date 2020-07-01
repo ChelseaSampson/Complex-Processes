@@ -4,16 +4,13 @@ class Person:
     self.email = email
     self.headGirl = headGirl
     self.deputy = deputy
-p1 = Person("sampsoncpnz", "Me", "You" )
-print(p1.email)
-print(p1.headGirl)
-"""
+
 for x in txt:
   y = str(x)
   z = y.split("\"")
-  print (z[9])
   a = z[9]
   b = a.split (";")
-  print (b)
+  test = Person(z[3],"","")
+  print(test.email)
+
 txt.close()
-"""
