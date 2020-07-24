@@ -6,17 +6,33 @@ class Person:
     self.deputy = deputy
     self.votes = votes
 
+isItTheFirstLine = True
 listOfVoters = []
-for x in txt:
-  y = str(x)
-  z = y.split("\"")
-  a = z[9]
-  b = a.split (";")
-  test = Person(z[3],z[5],z[7], b)
-  listOfVoters.append(test)
 
+#Step 1: Store the voting data in a list
+for x in txt:
+  if not isItTheFirstLine:
+    y = str(x)
+    z = y.split("\"")
+    a = z[9]
+    b = a.split (";")
+    test = Person(z[3],z[5],z[7], b)
+    listOfVoters.append(test)
+  else:
+    isItTheFirstLine = False
+
+#Step 2: Analyse said data, and tally up the votes
+headGirlVotes = {}
 for x in listOfVoters:
-  print(x.email)
-  print(x.headGirl)
-  print(x.deputy)
-  print(x.votes)
+  if x.headGirl in headGirlVotes:
+    headGirlVotes[x.headGirl] += 1
+  else:
+    headGirlVotes[x.headGirl] = 1
+
+#Step 3: Show the amount of times people got voted for
+for x in headGirlVotes:
+  print(x)
+  print(headGirlVotes[x])
+
+
+txt.close()
