@@ -1,16 +1,22 @@
 txt = open("votingData.csv","r")
 class Person:
-  def __init__(self, email, headGirl, deputy, ):
+  def __init__(self, email, headGirl, deputy, votes):
     self.email = email
     self.headGirl = headGirl
     self.deputy = deputy
+    self.votes = votes
 
+listOfVoters = []
 for x in txt:
   y = str(x)
   z = y.split("\"")
   a = z[9]
   b = a.split (";")
-  test = Person(z[3],"","")
-  print(test.email)
+  test = Person(z[3],z[5],z[7], b)
+  listOfVoters.append(test)
 
-txt.close()
+for x in listOfVoters:
+  print(x.email)
+  print(x.headGirl)
+  print(x.deputy)
+  print(x.votes)
