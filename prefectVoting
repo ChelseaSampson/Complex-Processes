@@ -1,10 +1,10 @@
 txt = open("votingData.csv","r")
 class Person:
-  def __init__(self, email, headGirl, deputy, votes):
+  def __init__(self, email, headGirl, deputy, prefectVotes):
     self.email = email
     self.headGirl = headGirl
     self.deputy = deputy
-    self.votes = votes
+    self.prefectVotes = prefectVotes
 
 isItTheFirstLine = True
 listOfVoters = []
@@ -29,10 +29,35 @@ for x in listOfVoters:
   else:
     headGirlVotes[x.headGirl] = 1
 
+deputyVotes = {}
+for x in listOfVoters:
+  if x.deputy in deputyVotes:
+    deputyVotes[x.deputy] += 1
+  else:
+    deputyVotes[x.deputy] = 1
+
+prefectVotesDict = {}
+for x in listOfVoters:
+  for z in x.prefectVotes:
+    if z in prefectVotesDict:
+      prefectVotesDict[z] += 1
+    else:
+      prefectVotesDict[z] = 1
+
 #Step 3: Show the amount of times people got voted for
+print("Head Girl Votes:")
 for x in headGirlVotes:
   print(x)
   print(headGirlVotes[x])
 
+print("Deputy Votes:")
+for x in deputyVotes:
+  print(x)
+  print(deputyVotes[x])
+
+print("Prefect Votes:")
+for x in prefectVotesDict:
+  print(x)
+  print(prefectVotesDict[x])
 
 txt.close()
