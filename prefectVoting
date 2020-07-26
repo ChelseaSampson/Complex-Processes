@@ -14,6 +14,8 @@ class Student(Person):
 
 isItTheFirstLine = True
 listOfVoters = []
+listOfStudents = []
+listOfTeachers = []
 
 #Step 1: Store the voting data in a list
 for x in txt:
@@ -25,9 +27,11 @@ for x in txt:
     if z[3][1].isdigit():
       student = Student(z[3],z[5],z[7], b)
       listOfVoters.append(student)
+      listOfStudents.append(student)
     else:
       teacher = Teacher(z[3], z[5], z[7], b)
       listOfVoters.append(teacher)
+      listOfTeachers.append(teacher)
   else:
     isItTheFirstLine = False
 
@@ -37,26 +41,98 @@ for x in listOfVoters:
   if x.headGirl in headGirlVotes:
     headGirlVotes[x.headGirl] += (1 * x.multiplier)
   else:
-    headGirlVotes[x.headGirl] = 1
-  print(x.email)
-  print(x.multiplier)
+    headGirlVotes[x.headGirl] = (1 * x.multiplier)
+
+headGirlVotesByStudents = {}
+for x in listOfStudents:
+  if x.headGirl in headGirlVotesByStudents:
+    headGirlVotesByStudents[x.headGirl] += (1 * x.multiplier)
+  else:
+    headGirlVotesByStudents[x.headGirl] = (1 * x.multiplier)
+
+headGirlVotesByTeachers = {}
+for x in listOfTeachers:
+  if x.headGirl in headGirlVotes:
+    headGirlVotes[x.headGirl] += (1 * x.multiplier)
+  else:
+    headGirlVotes[x.headGirl] = (1 * x.multiplier)
 
 deputyVotes = {}
 for x in listOfVoters:
   if x.deputy in deputyVotes:
-    deputyVotes[x.deputy] += 1
+    deputyVotes[x.deputy] += (1 * x.multiplier)
   else:
-    deputyVotes[x.deputy] = 1
+    deputyVotes[x.deputy] = (1 * x.multiplier)
+
+deputyVotesByStudents = {}
+for x in listOfStudents:
+  if x.deputy in deputyVotesByStudents:
+    deputyVotesByStudents[x.deputy] += (1 * x.multiplier)
+  else:
+    deputyVotesByStudents[x.deputy] = (1 * x.multiplier)
+
+deputyVotesByTeachers = {}
+for x in listOfTeachers:
+  if x.deputy in deputyVotesByTeachers:
+    deputyVotesByTeachers[x.deputy] += (1 * x.multiplier)
+  else:
+    deputyVotesByTeachers[x.deputy] = (1 * x.multiplier)
 
 prefectVotesDict = {}
 for x in listOfVoters:
   for z in x.prefectVotes:
     if z in prefectVotesDict:
-      prefectVotesDict[z] += 1
+      prefectVotesDict[z] += (1 * x.multiplier)
     else:
-      prefectVotesDict[z] = 1
+      prefectVotesDict[z] = (1 * x.multiplier)
+
+prefectVotesDictByStudents = {}
+for x in listOfStudents:
+  for z in x.prefectVotes:
+    if z in prefectVotesDictByStudents:
+      prefectVotesDictByStudents[z] += (1 * x.multiplier)
+    else:
+      prefectVotesDictByStudents[z] = (1 * x.multiplier)
+
+prefectVotesDictByTeachers = {}
+for x in listOfTeachers:
+  for z in x.prefectVotes:
+    if z in prefectVotesDictByTeachers:
+      prefectVotesDictByTeachers[z] += (1 * x.multiplier)
+    else:
+      prefectVotesDictByTeachers[z] = (1 * x.multiplier)
 
 #Step 3: Show the amount of times people got voted for
+print("Head Girl Votes By Students:")
+for x in headGirlVotesByStudents:
+  print(x)
+  print(headGirlVotesByStudents[x])
+
+print("Deputy Votes By Students:")
+for x in deputyVotesByStudents:
+  print(x)
+  print(deputyVotesByStudents[x])
+
+print("Prefect Votes By Students:")
+for x in prefectVotesDictByStudents:
+  print(x)
+  print(prefectVotesDictByStudents[x])
+
+print("Head Girl Votes By Teachers (Worth 2 Votes):")
+for x in headGirlVotesByTeachers:
+  print(x)
+  print(headGirlVotesByTeachers[x])
+
+print("Deputy Votes By Teachers (Worth 2 Votes):")
+for x in deputyVotesByTeachers:
+  print(x)
+  print(deputyVotesByTeachers[x])
+
+print("Prefect Votes By Teachers (Worth 2 Votes):")
+for x in prefectVotesDictByTeachers:
+  print(x)
+  print(prefectVotesDictByTeachers[x])
+
 print("Head Girl Votes:")
 for x in headGirlVotes:
   print(x)
