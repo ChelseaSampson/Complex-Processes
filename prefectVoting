@@ -52,55 +52,61 @@ for x in listOfStudents:
 
 headGirlVotesByTeachers = {}
 for x in listOfTeachers:
-  if x.headGirl in headGirlVotes:
-    headGirlVotes[x.headGirl] += 1
+  if x.headGirl in headGirlVotesByTeachers:
+    headGirlVotesByTeachers[x.headGirl] += 1
   else:
-    headGirlVotes[x.headGirl] = 1
+    headGirlVotesByTeachers[x.headGirl] = 1
 
 deputyVotes = {}
 for x in listOfVoters:
-  if x.deputy in deputyVotes:
-    deputyVotes[x.deputy] += 1
-  else:
-    deputyVotes[x.deputy] = 1
+  if x.deputy!=x.headGirl:
+    if x.deputy in deputyVotes:
+      deputyVotes[x.deputy] += 1
+    else:
+      deputyVotes[x.deputy] = 1
 
 deputyVotesByStudents = {}
 for x in listOfStudents:
-  if x.deputy in deputyVotesByStudents:
-    deputyVotesByStudents[x.deputy] += 1
-  else:
-    deputyVotesByStudents[x.deputy] = 1
+  if x.deputy != x.headGirl:
+    if x.deputy in deputyVotesByStudents:
+      deputyVotesByStudents[x.deputy] += 1
+    else:
+      deputyVotesByStudents[x.deputy] = 1
 
 deputyVotesByTeachers = {}
 for x in listOfTeachers:
-  if x.deputy in deputyVotesByTeachers:
-    deputyVotesByTeachers[x.deputy] += 1
-  else:
-    deputyVotesByTeachers[x.deputy] = 1
+  if x.deputy != x.headGirl:
+    if x.deputy in deputyVotesByTeachers:
+      deputyVotesByTeachers[x.deputy] += 1
+    else:
+      deputyVotesByTeachers[x.deputy] = 1
 
 prefectVotesDict = {}
 for x in listOfVoters:
   for z in x.prefectVotes:
-    if z in prefectVotesDict:
-      prefectVotesDict[z] += 1
-    else:
-      prefectVotesDict[z] = 1
+    if z != x.headGirl and z != x.deputy:
+      if z in prefectVotesDict:
+        prefectVotesDict[z] += 1
+      else:
+        prefectVotesDict[z] = 1
 
 prefectVotesDictByStudents = {}
 for x in listOfStudents:
-  for z in x.prefectVotes:
-    if z in prefectVotesDictByStudents:
-      prefectVotesDictByStudents[z] += 1
-    else:
-      prefectVotesDictByStudents[z] = 1
+  if z != x.headGirl and z != x.deputy:
+    for z in x.prefectVotes:
+      if z in prefectVotesDictByStudents:
+        prefectVotesDictByStudents[z] += 1
+      else:
+        prefectVotesDictByStudents[z] = 1
 
 prefectVotesDictByTeachers = {}
 for x in listOfTeachers:
-  for z in x.prefectVotes:
-    if z in prefectVotesDictByTeachers:
-      prefectVotesDictByTeachers[z] += 1
-    else:
-      prefectVotesDictByTeachers[z] = 1
+  if z != x.headGirl and z != x.deputy:
+    for z in x.prefectVotes:
+      if z in prefectVotesDictByTeachers:
+        prefectVotesDictByTeachers[z] += 1
+      else:
+        prefectVotesDictByTeachers[z] = 1
 
 #Step 3: Show the amount of times people got voted for
 print("Head Girl Votes By Students:")
