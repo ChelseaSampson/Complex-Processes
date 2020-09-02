@@ -104,48 +104,57 @@ for x in listOfTeachers:
 
 #Step 3: Show the amount of times people got voted for
 print("Head Girl Votes By Students:")
-for x in headGirlVotesByStudents:
-  print(x)
-  print(headGirlVotesByStudents[x])
+sortedList = sorted(headGirlVotesByStudents.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
 print("Deputy Votes By Students:")
-for x in deputyVotesByStudents:
-  print(x)
-  print(deputyVotesByStudents[x])
+sortedList = sorted(deputyVotesByStudents.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
 print("Prefect Votes By Students:")
-for x in prefectVotesDictByStudents:
-  print(x)
-  print(prefectVotesDictByStudents[x])
+sortedList = sorted(prefectVotesDictByStudents.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
 print("Head Girl Votes By Teachers:")
-for x in headGirlVotesByTeachers:
-  print(x)
-  print(headGirlVotesByTeachers[x])
+sortedList = sorted(headGirlVotesByTeachers.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
 print("Deputy Votes By Teachers:")
-for x in deputyVotesByTeachers:
-  print(x)
-  print(deputyVotesByTeachers[x])
+sortedList = sorted(deputyVotesByTeachers.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
 print("Prefect Votes By Teachers:")
-for x in prefectVotesDictByTeachers:
-  print(x)
-  print(prefectVotesDictByTeachers[x])
+sortedList = sorted(prefectVotesDictByTeachers.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
-print("Head Girl Votes, Teachers worth 2 votes:")
-for x in headGirlVotes:
-  print(x)
-  print(headGirlVotes[x])
+print("Head Girl Votes:")
+sortedList = sorted(headGirlVotes.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
-print("Deputy Votes, Teachers worth 2 votes:")
-for x in deputyVotes:
-  print(x)
-  print(deputyVotes[x])
+print("Deputy Votes:")
+sortedList = sorted(deputyVotes.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
-print("Prefect Votes, Teachers worth 2 votes:")
-for x in prefectVotesDict:
-  print(x)
-  print(prefectVotesDict[x])
+print("Prefect Votes:")
+sortedList = sorted(prefectVotesDict.items(), key=lambda l: l[1], reverse=True)
+for x in sortedList:
+  print(x[0])
+  print(x[1])
 
 txt.close()
