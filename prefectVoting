@@ -108,59 +108,73 @@ for x in listOfTeachers:
       else:
         prefectVotesDictByTeachers[z] = 1
 
+txt.close()
+
+#This allows for the program to write the report at the end of the provided file
+f = open("votingData.csv", "a")
+f.write("\n")
+
 #Step 3: Show the amount of times people got voted for
-print("Head Girl Votes By Students:")
+f.write("Head Girl Votes By Students:\n")
 sortedList = sorted(headGirlVotesByStudents.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
-print("Deputy Votes By Students:")
+f.write("\n")
+f.write("Deputy Votes By Students:\n")
 sortedList = sorted(deputyVotesByStudents.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
-print("Prefect Votes By Students:")
+f.write("\n")
+f.write("Prefect Votes By Students:\n")
 sortedList = sorted(prefectVotesDictByStudents.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
-print("Head Girl Votes By Teachers:")
+f.write("\n")
+f.write("Head Girl Votes By Teachers:\n")
 sortedList = sorted(headGirlVotesByTeachers.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
-print("Deputy Votes By Teachers:")
+f.write("\n")
+f.write("Deputy Votes By Teachers:\n")
 sortedList = sorted(deputyVotesByTeachers.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
-print("Prefect Votes By Teachers:")
+f.write("\n")
+f.write("Prefect Votes By Teachers:\n")
 sortedList = sorted(prefectVotesDictByTeachers.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
-print("Head Girl Votes:")
+f.write("\n")
+f.write("Head Girl Votes:\n")
 sortedList = sorted(headGirlVotes.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
-print("Deputy Votes:")
+f.write("\n")
+f.write("Deputy Votes:\n")
 sortedList = sorted(deputyVotes.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
-print("Prefect Votes:")
+f.write("\n")
+f.write("Prefect Votes:\n")
 sortedList = sorted(prefectVotesDict.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
-  print(x[0])
-  print(x[1])
+  f.write(x[0]+"\n")
+  f.write(str(x[1])+"\n")
 
 txt.close()
