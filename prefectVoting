@@ -110,9 +110,10 @@ for x in listOfTeachers:
 
 txt.close()
 
-#This allows for the program to write the report at the end of the provided file
-f = open("votingData.csv", "a")
-f.write("\n")
+#This allows for the program to write the report in a new file that is named using the date + time
+import datetime
+fileName = datetime.datetime.now()
+f = open(fileName.strftime("%Y")+fileName.strftime("%B")+"VotingReport"+".csv", "w")
 
 #Step 3: Show the amount of times people got voted for
 f.write("Head Girl Votes By Students:\n")
