@@ -1,17 +1,19 @@
+#Make sure that you either change the name of your csv file or change the name in quotes
 txt = open("votingData.csv","r")
+
+#Creating a class and then subclasses that inherit
 class Person:
   def __init__(self, email, headGirl, deputy, prefectVotes):
     self.email = email
     self.headGirl = headGirl
     self.deputy = deputy
     self.prefectVotes = prefectVotes
-
 class Teacher(Person):
   pass
-
 class Student(Person):
   pass
 
+#Defining the boolean (that checks if it's the first line so that the program can skip it) and lists
 isItTheFirstLine = True
 listOfVoters = []
 listOfStudents = []
@@ -20,16 +22,20 @@ listOfTeachers = []
 #Step 1: Store the voting data in a list
 for x in txt:
   if not isItTheFirstLine:
+    #Splitting the line into properties of an object
     y = str(x)
     z = y.split("\"")
     a = z[9]
+    #"b" is the 19 votes split up into a list
     b = a.split (";")
     if z[3][1].isdigit():
       student = Student(z[3],z[5],z[7], b)
+      #Adding the student into the student list and the voter list
       listOfVoters.append(student)
       listOfStudents.append(student)
     else:
       teacher = Teacher(z[3], z[5], z[7], b)
+      # Adding the teacher into the teacher list and the voter list
       listOfVoters.append(teacher)
       listOfTeachers.append(teacher)
   else:
@@ -38,8 +44,10 @@ for x in txt:
 #Step 2: Analyse said data, and tally up the votes
 headGirlVotes = {}
 for x in listOfVoters:
+  #If that students name already exists as someone who has been voted it will add one to their voting total
   if x.headGirl in headGirlVotes:
     headGirlVotes[x.headGirl] += 1
+  #Else they get created in the dictionary as someone who has now been voted for
   else:
     headGirlVotes[x.headGirl] = 1
 
@@ -59,6 +67,7 @@ for x in listOfTeachers:
 
 deputyVotes = {}
 for x in listOfVoters:
+  #If the voter has already voted for this person in head girl it will not record the vote
   if x.deputy!=x.headGirl:
     if x.deputy in deputyVotes:
       deputyVotes[x.deputy] += 1
@@ -83,6 +92,7 @@ for x in listOfTeachers:
 
 prefectVotesDict = {}
 for x in listOfVoters:
+  # If the voter has already voted for this person in head girl or deputy it will not record the vote
   for z in x.prefectVotes:
     if z != x.headGirl and z != x.deputy:
       if z in prefectVotesDict:
@@ -110,13 +120,14 @@ for x in listOfTeachers:
 
 txt.close()
 
-#This allows for the program to write the report in a new file that is named using the date + time
+#This allows for the program to write the report in a new file that is named using the month + year
 import datetime
 fileName = datetime.datetime.now()
 f = open(fileName.strftime("%Y")+fileName.strftime("%B")+"VotingReport"+".csv", "w")
 
 #Step 3: Show the amount of times people got voted for
 f.write("Head Girl Votes By Students:\n")
+#This sorts the votes in descending order
 sortedList = sorted(headGirlVotesByStudents.items(), key=lambda l: l[1], reverse=True)
 for x in sortedList:
   f.write(x[0]+"\n")
