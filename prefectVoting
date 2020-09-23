@@ -190,3 +190,4 @@ for x in sortedList:
   f.write(str(x[1])+"\n")
 
 txt.close()
+f.close()
